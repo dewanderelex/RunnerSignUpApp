@@ -3,7 +3,8 @@ import {StyleSheet, View, StatusBar} from 'react-native';
 
 import Login from './Pages/Login/Login';
 import Opening from './Pages/Opening/Opening';
-import Hub from './Pages/Hub/Hub'
+import Hub from './Pages/Hub/Hub';
+import Timer from './Pages/Timer/Timer';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -15,8 +16,9 @@ export default class App extends Component<Props> {
           barStyle = 'light-content' 
         />
         
-        <Hub />
+        <Timer />
 
+        
       </View>
     );
   }

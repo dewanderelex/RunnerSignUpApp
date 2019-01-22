@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet,TouchableOpacity, TouchableNativeFeedback, Dimensions } from 'react-native';
 
 import Logo from '../../Components/Logo/Logo';
+import Footer from '../../Components/Footer/Footer';
 
 const WIDTH = Dimensions.get('window').width;
 
@@ -9,7 +10,8 @@ export default class Hub extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+			user: null,
+			race: null
     };
   }
 
@@ -19,7 +21,8 @@ export default class Hub extends Component {
 				<View style = {{marginTop: 30, marginBottom: 30, alignItems: 'center', width: WIDTH}}>
 					<Logo />
 				</View>
-        <TouchableNativeFeedback>
+				<View style = {styles.grid}>
+				<TouchableNativeFeedback>
 					<View  style = {styles.box}>
 						{/** <Icon /> */}
 						<Text style = {styles.textItem}>Timer</Text>
@@ -43,16 +46,34 @@ export default class Hub extends Component {
 						<Text style = {styles.textItem}>Other</Text>
 					</View>
 				</TouchableNativeFeedback>
+				</View>
+
+				<View style = {{margin: 8}}>
+					<Text>
+						Sign in as {this.state.user}
+					</Text>
+				</View>
+
+				<View style = {{margin: 8}}>
+					<Text>
+						Timing for {this.state.race}
+					</Text>
+				</View>
+				<Footer />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-	hub: {
+	hub:{
 		flex: 1,
+		alignItems: 'center'
+	},
+	grid: {
 		flexDirection: 'row',
 		flexWrap: 'wrap',
+		backgroundColor: '#000'
 	},
 	box: {
 		margin: 20,
@@ -66,5 +87,9 @@ const styles = StyleSheet.create({
 	textItem: {
 		color: '#fff',
 		fontSize: 20,
+	},
+	infoText: {
+		fontSize: 16,
+		color: '#fff',
 	}
 });
